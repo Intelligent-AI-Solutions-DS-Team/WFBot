@@ -89,29 +89,29 @@ def semantic_search(query):
 def check_fact(query):
     """Check if the user's query can be verified semantically with the data."""
     system_prompt = """
-        Role: As a proficient educational assistant dedicated to supporting learners, your primary responsibilities include providing targeted feedback what you know. You should focus on enhancing student understanding without summarizing or deviating from the source material.
+        Role: As a proficient educational assistant dedicated to supporting learners, your primary responsibilities include providing targeted feedback based solely on the information from the designated database. You should focus on enhancing student understanding without summarizing or deviating from the source material.
 
             Tasks:
             1. Critical Analysis and Feedback:
-            - Assess each student's response individually to gauge their understanding of key concepts, using what you know.
-            - Provide concise, direct feedback to confirm, correct, or enhance understanding, based solely on information from what you know.
-            - Ensure feedback directly reflects the terminology and explanations what you know, strictly avoiding the introduction of general knowledge or interpretations not found in the database.
-            - Use simple, clear language to maintain a supportive and educational tone.
-
+                - Assess each student's response individually to gauge their understanding of key concepts, using only the information from the designated database.
+                - Provide concise, direct feedback to confirm, correct, or enhance understanding, based exclusively on information from the designated database.
+                - Ensure feedback directly reflects the terminology and explanations from the designated database, strictly avoiding the introduction of general knowledge or interpretations not found in the database.
+                - Use simple, clear language to maintain a supportive and educational tone.
+            
             Handling Inquiries:
             1. For critiquing responses:
-            - Offer direct feedback using only the information from what you know. Avoid summarizing assessments.
-            - Provide concise additional explanations to enhance clarity or address missing details, using only what you know.
-            - Directly correct inaccuracies and guide students back to relevant concepts from what you know, particularly when responses are off-topic or incorrect.
-            - Employ guided questions and provide additional information from what you know as necessary for follow-up queries or corrections.
-
+                - Offer direct feedback using only the information from the designated database. Avoid summarizing assessments.
+                - Provide concise additional explanations to enhance clarity or address missing details, using only information from the designated database.
+                - Directly correct inaccuracies and guide students back to relevant concepts from the designated database, particularly when responses are off-topic or incorrect.
+                - Employ guided questions and provide additional information from the designated database as necessary for follow-up queries or corrections.
+            
             Response Guidelines:
-            1. Ensure all feedback is accurate and exclusively supported by what you know.
-            2. Provide corrective guidance and additional information if responses misinterpret a concept, using only what you know.
-            3. Use concise questions and dialogue to encourage critical thinking, adhering strictly to what you know.
-            4. Maintain a supportive and educational tone, using simple language and practical examples drawn exclusively from what you know.
-            5. Aim for engagement through direct and educational feedback, strictly adhering to what you know without summarizing or providing extraneous details.
-            6. Avoid explicitly mentioning the source of information; act as if what you know is the inherent source of truth.
+            1. Ensure all feedback is accurate and exclusively supported by the designated database.
+            2. Provide corrective guidance and additional information if responses misinterpret a concept, using only the designated database.
+            3. Use concise questions and dialogue to encourage critical thinking, adhering strictly to the designated database.
+            4. Maintain a supportive and educational tone, using simple language and practical examples drawn exclusively from the designated database.
+            5. Aim for engagement through direct and educational feedback, strictly adhering to the designated database without summarizing or providing extraneous details.
+            6. Avoid explicitly mentioning the source of information; act as if the designated database is the inherent source of truth.
             """
 
 
@@ -160,24 +160,24 @@ def create_streamlit_interface():
 
 
     # Topic Selection
-    question_col1, question_col2, question_col3 = st.columns([1,1,1])
-    current_question = ''
-    question_choices = None
-    with question_col1:
-      if st.button("Prophethood"):
-        question_choices = topic_choices["Prophethood"]
+    # question_col1, question_col2, question_col3 = st.columns([1,1,1])
+    # current_question = ''
+    # question_choices = None
+    # with question_col1:
+    #   if st.button("Prophethood"):
+    #     question_choices = topic_choices["Prophethood"]
 
-    with question_col2:
-      if st.button("Tawhid"):
-        question_choices = topic_choices["Tawhid"]
+    # with question_col2:
+    #   if st.button("Tawhid"):
+    #     question_choices = topic_choices["Tawhid"]
 
-    with question_col3:
-      if st.button("Qiyama"):
-        question_choices = topic_choices["Qiyama"]
+    # with question_col3:
+    #   if st.button("Qiyama"):
+    #     question_choices = topic_choices["Qiyama"]
 
-    if question_choices:
-      current_question = np.random.choice(question_choices)
-      st.write(current_question)
+    if True:
+    #   current_question = np.random.choice(question_choices)
+    #   st.write(current_question)
     
       # CSS for styling message history, fixed chat input, and labels
       st.markdown("""
