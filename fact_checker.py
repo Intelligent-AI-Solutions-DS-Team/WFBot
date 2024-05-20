@@ -275,9 +275,10 @@ def create_streamlit_interface():
       st.chat_input("Type your query here:", key="query", on_submit=ask_question)
       st.markdown('</div>', unsafe_allow_html=True)
   
-      # Button to start a new chat at the bottom of the conversation
-      if st.button("Start New Chat", key='start_new_chat'):
-          start_new_chat()
+    # Button to start a new chat at the bottom of the conversation
+    if st.session_state['message_history']:
+        if st.button("Start New Chat", key='start_new_chat'):
+            start_new_chat()
 
     else:
       st.warning("Select a question")
